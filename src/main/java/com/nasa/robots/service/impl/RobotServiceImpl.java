@@ -1,6 +1,5 @@
 package com.nasa.robots.service.impl;
 
-import com.nasa.robots.enums.Orientation;
 import com.nasa.robots.model.Coordinate;
 import com.nasa.robots.service.RobotService;
 import org.springframework.stereotype.Service;
@@ -13,7 +12,7 @@ public class RobotServiceImpl implements RobotService {
 
     private Integer sizeY;
 
-    private Coordinate position = new Coordinate(0,0, Orientation.NORTH);
+    private Coordinate position = new Coordinate(0,0);
 
     @Override
     public String walk(String movements) {

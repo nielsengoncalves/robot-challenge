@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/rest/mars")
-public class RobotController {
+public class AppController {
 
     @Autowired
     private RobotService robotService;
