@@ -20,7 +20,7 @@ public class SurfaceTest {
 
     @Test
     public void shouldGetSizeX() {
-        assertTrue(11 == surface.getSizeX());
+        assertTrue(10 == surface.getSizeX());
     }
 
     @Test
