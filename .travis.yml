@@ -4,6 +4,7 @@ jdk:
 install: true
 script:
   - ./mvnw clean install -X
+  - mvn cobertura:cobertura
   - bash <(curl -s https://codecov.io/bash)
 cache:
   directories:
