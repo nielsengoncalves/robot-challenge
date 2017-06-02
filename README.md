@@ -1,6 +1,6 @@
 # Robot Challenge
 [![Build Status](https://travis-ci.org/nielsenmg/robot-challenge.svg?branch=master)](https://travis-ci.org/nielsenmg/robot-challenge)
-![codecov.io](https://codecov.io/github/nielsenmg/robot-challenge/coverage.svg?branch=master)
+[![codecov.io](https://codecov.io/github/nielsenmg/robot-challenge/coverage.svg?branch=master)](https://codecov.io/gh/nielsenmg/robot-challenge)
 
 O projeto consiste em prover uma API de comunicação para que um robô consiga se movimentar em Marte a partir de uma lista de comandos.
 ## Requisitos
