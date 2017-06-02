@@ -12,7 +12,7 @@ O projeto consiste em prover uma API de comunicação para que um robô consiga 
 Primeiramente é necessário fazer o download dos arquivos:
 
 ```bash
-https://github.com/nielsenmg/robot-challenge.git
+git clone https://github.com/nielsenmg/robot-challenge.git
 ```
 
 Navegue até o diretório raiz `/robot-challenge` e execute o seguinte comando para a execução do projeto:
