@@ -6,7 +6,6 @@ O projeto consiste em prover uma API de comunicação para que um robô consiga 
 ## Requisitos
 
 - [Java8](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html)
-- [Maven](https://maven.apache.org/)
 
 ## Instalação
 
@@ -18,7 +17,7 @@ https://github.com/nielsenmg/robot-challenge.git
 
 Navegue até o diretório raiz `/robot-challenge` e execute o seguinte comando para a execução do projeto:
 ```bash
-mvn spring-boot:run
+./mvnw spring-boot:run
 ```
 
 ## Configurações
@@ -61,5 +60,5 @@ Por padrão a aplicação é inicializada na porta 8080.
 ## Testes
 Os testes podem ser executados através do comando:
 ```bash
-mvn test
+./mvnw test
 ```
