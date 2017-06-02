@@ -2,6 +2,8 @@ package com.nasa.robots.model;
 
 import com.nasa.robots.enums.Movement;
 import com.nasa.robots.enums.Orientation;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.Arrays;
 
@@ -14,9 +16,17 @@ public class Robot {
     private Surface surface;
 
     public Robot(Integer coordX, Integer coordY, Orientation orientation, Surface surface) {
+        if (hasInvalidCoordinates(coordX, coordY, surface)) {
+            throw new InvalidCoordinatesException();
+        }
+
         this.coordinate = new Coordinate(coordX, coordY);
         this.orientation = orientation;
         this.surface = surface;
+    }
+
+    private boolean hasInvalidCoordinates(Integer coordX, Integer coordY, Surface surface) {
+        return coordX < 0 || coordX > surface.getSizeX() || coordY < 0 || coordY > surface.getSizeY();
     }
 
     public void move(String movements) {
@@ -155,9 +165,13 @@ public class Robot {
         return position.getFormattedPosition();
     }
 
-    public class InvalidMovementException extends RuntimeException {
+    @ResponseStatus(value= HttpStatus.BAD_REQUEST, reason="Invalid Movement")
+    public final class InvalidMovementException extends RuntimeException {
         InvalidMovementException(String s) {
             super(s);
         }
     }
+
+
+    public final class InvalidCoordinatesException extends RuntimeException {}
 }

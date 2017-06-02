@@ -7,13 +7,16 @@ public class Surface {
     private Integer sizeY;
 
     public Surface(Integer sizeX, Integer sizeY) {
+        if (hasInvalidSize(sizeX, sizeY)) {
+            throw new InvalidSurfaceSizeException();
+        }
+
         this.sizeX = sizeX;
         this.sizeY = sizeY;
     }
 
-    public Surface(Integer size) {
-        this.sizeX = size;
-        this.sizeY = size;
+    private boolean hasInvalidSize(Integer sizeX, Integer sizeY) {
+        return sizeX <= 0 || sizeY <= 0;
     }
 
     public Integer getSizeX() {
@@ -23,4 +26,6 @@ public class Surface {
     public Integer getSizeY() {
         return sizeY;
     }
+
+    public class InvalidSurfaceSizeException extends RuntimeException {}
 }

@@ -9,6 +9,11 @@ public class RobotTest {
 
     private final Integer surfaceSize = 5;
 
+    @Test(expected = Robot.InvalidCoordinatesException.class)
+    public void shouldNotCreateRobotWithInvalidCoordinates() {
+        new Robot(10, 10, Orientation.NORTH, new Surface(5, 5));
+    }
+
     @Test
     public void shouldMoveAcrossSurface() throws Exception {
         Robot robot = createRobotOnBottomEdge(Orientation.NORTH);
@@ -23,6 +28,22 @@ public class RobotTest {
         assertEquals("(0, 0, N)", robot.getPosition());
         robot.move("MML");
         assertEquals("(0, 2, W)", robot.getPosition());
+    }
+
+    @Test
+    public void shouldMoveAcrossSurfaceOnCircle() throws Exception {
+        Robot robot = createRobotOnCenter(Orientation.NORTH);
+        assertEquals("(2, 2, N)", robot.getPosition());
+        robot.move("MLMLMLML");
+        assertEquals("(2, 2, N)", robot.getPosition());
+        robot.move("MRMRMRMR");
+        assertEquals("(2, 2, N)", robot.getPosition());
+    }
+
+    @Test(expected = Robot.InvalidMovementException.class)
+    public void shouldNotPerformInvalidMovement() throws Exception {
+        Robot robot = createRobotOnCenter(Orientation.NORTH);
+        robot.move('A');
     }
 
     @Test

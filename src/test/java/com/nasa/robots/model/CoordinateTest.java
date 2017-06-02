@@ -10,7 +10,7 @@ public class CoordinateTest {
     Coordinate coordinate;
 
     @Before
-    public void init() {
+    public void setUp() {
         this.coordinate = new Coordinate(5, 5);
     }
 
